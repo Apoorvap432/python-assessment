@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  report-generator:
+    build: .
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
+    networks:
+      - report-network
+
+networks:
+  report-network:
+    driver: bridge
